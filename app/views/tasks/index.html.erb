@@ -1,0 +1,21 @@
+<%= link_to 'Add new task', new_task_path %>
+<h1>To do</h1>
+<% @tasks_undone.each do |t| %>
+<p><%= t.description %>
+<%= t.created_at %>
+<%= link_to 'Mark as done', task_path(t, 
+								task: {done: :true}), 
+								method: :put %>
+</p>
+<% end %>
+<h1>Done</h1>
+<% @tasks_done.each do |t| %>
+<p><%= t.description %>
+<%= t.created_at %>
+<%= link_to 'Destroy', task_path(t), method: :delete, data: { confirm: "You sure?" } %>
+</p>
+<% end %>
+
+
+<% console %>
+
